@@ -4,7 +4,7 @@ Soft UI suite of views.
 
 ## Overview
 
-The SoftUI suite of views, comes with `ViewCollection`.
+The SoftUI suite of views.
 
 ![Preview](soft)
 
