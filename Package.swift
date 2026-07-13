@@ -5,6 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "SoftUI",
+    defaultLocalization: "en",
+    platforms: [
+        .macOS(.v15),
+        .iOS(.v18),
+        .visionOS(.v2)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -12,21 +18,19 @@ let package = Package(
             targets: ["SoftUI"]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/Vaida12345/ViewCollection.git", from: "1.8.0"),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "SoftUI",
-            swiftSettings: [
-                .enableUpcomingFeature("ApproachableConcurrency"),
-            ],
+            dependencies: ["ViewCollection"]
         ),
         .testTarget(
             name: "SoftUITests",
-            dependencies: ["SoftUI"],
-            swiftSettings: [
-                .enableUpcomingFeature("ApproachableConcurrency"),
-            ],
+            dependencies: ["SoftUI"]
         ),
     ]
 )
